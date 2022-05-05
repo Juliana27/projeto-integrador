@@ -22,4 +22,6 @@ insert into batch_stock (id, category, initial_quantity, current_quantity, initi
 
 insert into purchased_order (id, date, status, "buyer_id") values (1,'2022-04-20', 'aberto', 1);
 
+insert into purchased_order (id, date, status, "buyer_id") values (2,'2022-04-20', 'finalizado', 4);
+
 insert into cart (id, quantity, product_id, purchased_order_id) values (1, 10, 1, 1);

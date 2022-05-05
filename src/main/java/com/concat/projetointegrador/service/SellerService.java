@@ -1,12 +1,16 @@
 package com.concat.projetointegrador.service;
 
 import com.concat.projetointegrador.exception.EntityNotFound;
+import com.concat.projetointegrador.exception.ObjectNotRegistrate;
+import com.concat.projetointegrador.model.Product;
 import com.concat.projetointegrador.model.Seller;
+import com.concat.projetointegrador.repository.ProductRepository;
 import com.concat.projetointegrador.repository.SellerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +20,7 @@ public class SellerService {
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     private SellerRepository sellerRepository;
+    private ProductRepository productRepository;
 
     /**
      * Find a Seller by ID or throw an EntityNotFound Exception
@@ -38,5 +43,19 @@ public class SellerService {
     public Seller create(Seller seller) {
             seller.setPassword(passwordEncoder.encode(seller.getPassword()));
             return sellerRepository.save(seller);
+    }
+
+    /**
+     * search a list of products by seller
+     * @param seller - object seller
+     * @return returns a list of products if it exists
+     * @throws ObjectNotRegistrate - returns an exception if there are no products
+     */
+    public List<Product> findAllProductsBySeller(Seller seller) {
+        List<Product> products = productRepository.findProductBySeller(seller);
+        if (products.isEmpty()) {
+            throw new ObjectNotRegistrate("Não existe produtos cadastrados para esse vendedor!");
+        }
+        return products;
     }
 }

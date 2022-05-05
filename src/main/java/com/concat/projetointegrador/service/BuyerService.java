@@ -1,9 +1,14 @@
 package com.concat.projetointegrador.service;
 
+import com.concat.projetointegrador.dto.BuyerResponseDTO;
 import com.concat.projetointegrador.exception.EntityNotFound;
+import com.concat.projetointegrador.exception.ObjectNotRegistrate;
 import com.concat.projetointegrador.model.Buyer;
+import com.concat.projetointegrador.model.PurchasedOrder;
 import com.concat.projetointegrador.repository.BuyerRepository;
+import com.concat.projetointegrador.repository.PurchasedOrderRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,12 +17,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class BuyerService {
 
     private BuyerRepository buyerRepository;
+    private PurchasedOrderRepository purchasedOrderRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
     /**
@@ -46,5 +53,21 @@ public class BuyerService {
             throw new RuntimeException("Comprador já cadastrado");
         }
         return buyerRepository.save(buyer);
+    }
+
+    /**
+     * fetches all completed orders from a buyer
+     * @param buyer - object buyer
+     * @return a list of completed orders
+     * @throws ObjectNotRegistrate - returns an exception if there are no orders
+     */
+    public List<PurchasedOrder> findByPurchaseOrderByBuyer(Buyer buyer) {
+        List<PurchasedOrder> purchasedOrderByBuyer = purchasedOrderRepository.findPurchasedOrderByBuyer(buyer);
+        List<PurchasedOrder> purchasedOrdersFinalized = purchasedOrderByBuyer.stream().filter(
+                purchasedOrder -> purchasedOrder.getStatus().equalsIgnoreCase("finalizado")).collect(Collectors.toList());
+        if (purchasedOrdersFinalized.isEmpty()) {
+            throw new ObjectNotRegistrate("Não existe compras realizadas para esse comprador!");
+        }
+        return purchasedOrdersFinalized;
     }
 }

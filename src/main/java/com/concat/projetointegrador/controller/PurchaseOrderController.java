@@ -44,13 +44,13 @@ public class PurchaseOrderController {
                 .map(cart -> CartsDTO.builder()
                         .id(cart.getId())
                         .quantity(cart.getQuantity())
-                        .productDTO(ProductDTO.convertToProductDTO(cart.getProduct()))
+                        .product(ProductDTO.convertToProductDTO(cart.getProduct()))
                         .build()).collect(Collectors.toList());
         PurchasedOrderResponseDTO purchasedOrderResponseDTO = PurchasedOrderResponseDTO.builder()
                 .id(purchasedOrder.getId())
                 .date(purchasedOrder.getDate())
                 .status(purchasedOrder.getStatus())
-                .cartsDTO(carts)
+                .carts(carts)
                 .build();
         return ResponseEntity.ok(purchasedOrderResponseDTO);
     }
@@ -67,13 +67,13 @@ public class PurchaseOrderController {
                 .map(cart -> CartsDTO.builder()
                         .id(cart.getId())
                         .quantity(cart.getQuantity())
-                        .productDTO(ProductDTO.convertToProductDTO(cart.getProduct()))
+                        .product(ProductDTO.convertToProductDTO(cart.getProduct()))
                         .build()).collect(Collectors.toList());
         PurchasedOrderResponseDTO purchasedOrderResponseDTO = PurchasedOrderResponseDTO.builder()
                 .id(updatedPurchasedOrder.getId())
                 .date(updatedPurchasedOrder.getDate())
                 .status(updatedPurchasedOrder.getStatus())
-                .cartsDTO(carts)
+                .carts(carts)
                 .build();
         return ResponseEntity.ok(purchasedOrderResponseDTO);
     }
