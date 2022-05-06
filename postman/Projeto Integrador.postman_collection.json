@@ -167,7 +167,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInRva2VuLXR5cGUiOiJyZWZyZXNoLXRva2VuIiwicm9sZXMiOlsiQURNSU4iXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS92MS9mcmVzaC1wcm9kdWN0cy9sb2dpbiIsImV4cCI6MTY1MTY5OTQ3NH0.zu6gZrSMF-4y9UsdqmET3L1jalzvDMbSRHl15LazhqE",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdVNFTEwiLCJ0b2tlbi10eXBlIjoicmVmcmVzaC10b2tlbiIsInJvbGVzIjpbIlNlbGxlciJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL3YxL2ZyZXNoLXByb2R1Y3RzL2xvZ2luIiwiZXhwIjoxNjUxNzYwMjk2fQ.A5G7TECmB3-NHBpAttJsuoDw7_LKxArfaM2HV62i8kY",
 									"type": "string"
 								}
 							]
@@ -670,6 +670,72 @@
 									"key": "productId",
 									"value": "1"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REQUISITO 6 JULIANA SELLER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdVNFTEwiLCJ0b2tlbi10eXBlIjoicmVmcmVzaC10b2tlbiIsInJvbGVzIjpbIlNlbGxlciJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL3YxL2ZyZXNoLXByb2R1Y3RzL2xvZ2luIiwiZXhwIjoxNjUxNzYwMjk2fQ.A5G7TECmB3-NHBpAttJsuoDw7_LKxArfaM2HV62i8kY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/fresh-products/seller/products/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"seller",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REQUISITO 6 JULIANA BUYER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdVNFTEwiLCJ0b2tlbi10eXBlIjoicmVmcmVzaC10b2tlbiIsInJvbGVzIjpbIlNlbGxlciJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL3YxL2ZyZXNoLXByb2R1Y3RzL2xvZ2luIiwiZXhwIjoxNjUxNzYwMjk2fQ.A5G7TECmB3-NHBpAttJsuoDw7_LKxArfaM2HV62i8kY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/fresh-products/seller/products/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"seller",
+								"products",
+								"2"
 							]
 						}
 					},
