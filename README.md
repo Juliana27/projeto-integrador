@@ -12,7 +12,7 @@ O Seguinte desafio foi proposto para aplicar os conhecimentos até então alcan�
 
 
 ## Endpoints
-Arquivo de rotas do Postman: [postman_collection.json](https://github.com/buskari/projeto-integrador/blob/develop/postman/Projeto%20Integrador.postman_collection.json)
+Arquivo de rotas do Postman: [postman_collection.json)](https://github.com/buskari/projeto-integrador/blob/develop/postman/Projeto%20Integrador.postman_collection.json)
 
 URL Base: localhost:8080/api/v1/fresh-products
 
@@ -32,6 +32,9 @@ URL Base: localhost:8080/api/v1/fresh-products
 | `GET` | `/warehouse/products?productId=1` | Obtenha a quantidade total de produtos por armazém | --|
 | `GET` | `/warehouse/{id}` | Obtenha um armazém pelo id|-- |
 | `GET` | `/batchstock/duedate?days=600&sectorId=1` | Obtenha uma lista de lotes dentro do prazo de validade solicitado, que pertencem a uma determinada categoria de produto (FS = FRESCOS, RF = REFRIGERADO, FF = CONGELADO)|-- |
+| `GET` | `/buyer/purchaseorder/{id}` | Busca os pedidos por comprador |-- |
+| `GET` | `/seller/products/{id}` | Busca produtos por vendedor |-- |
+
 
 
 
