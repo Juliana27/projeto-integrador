@@ -35,6 +35,8 @@ URL Base: localhost:8080/api/v1/fresh-products
 | `GET` | `/buyer/purchaseorder/{id}` | Busca os pedidos por comprador |-- |
 | `GET` | `/seller/products/{id}` | Busca produtos por vendedor |-- |
 
+[Clique aqui](https://github.com/buskari/projeto-integrador/tree/develop/script-sql) para acessar o script para popular o banco de dados.
+
 
 
 
